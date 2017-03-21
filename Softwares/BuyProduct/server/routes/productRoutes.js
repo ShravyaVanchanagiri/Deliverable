@@ -44,11 +44,8 @@ var productRouter={
     storeItems:function(req,res){
         console.log(req.body);
         var queryParam=req.body;
-        var totalItems = queryParam.products.length;
-        var total = 0;
         var listItems = [];
-        for(var i = 0;i<queryParam.products.length;i++){
-            var eachProduct = queryParam.products[i];
+        queryParam.products.forEach(function(eachProduct,index){
             var itemObj = new itemModel({
                 product:eachProduct._id,
                 quantity:eachProduct.selectedQuantity,
@@ -60,42 +57,32 @@ var productRouter={
                 }
                 else{
 
+                   if(index === queryParam.products.length -1){
+                       listItems.push(itemObj._id);
+                           console.log("should worked");
+                       new billModel({
+                           purchasedBy:"Sridhar",
+                           purchasedOn:new Date(),
+                           list:listItems,
+                           total:123
+                       }).save(function(err,billData){
+                           if(err){
+                            console.log("Eror",err);
+                           }
+                           else{
+                               res.send(prepareRes(200,billData._id,"OK"));
+                           }
+                       })
+                   }
+                    else {
+                       listItems.push(itemObj._id);
+                   }
 
-                    for(var i=0;i<data;i++){
-                        var total = total + data[i].price;
-                        console.log(total);
-                    }
-                    console.log(total);
-                    listItems.push(itemObj._id);
-                    var total = 0;
-                    for(var i=0;i<data.length;i++){
-                        total = total + data[i].price;
-                    }
-                    console.log("in bill model........................................");
                 }
-            });
-            console.log(i);
-            console.log(listItems)
-            if(i === totalItems-1)
-            {
-                console.log("billl savibgggg");
-
-                new billModel({
-                    purchasedBy:"Sridhar",
-                    purchasedOn:new Date(),
-                    list:listItems,
-                    total:total
-                }).save(function(err){
-                    if(err){
-                            console.log(err);
-                    }
-                    else{
-                        /*res.send(prepareRes(200,billData,"OK"));*/
-                        console.log("kkk");
-                    }
-                })
-            }
-        }
+            })
+            console.log("index",index)
+            console.log("queryParam.products",queryParam.products.length)
+        })
 
 
 
@@ -107,26 +94,26 @@ module.exports=productRouter;
 
 
 /*var newBill = new billModel();
- newBill.purchasedBy = query.purchasedBy;
- newBill.purchasedOn = query.purchasedOn;
- newBill.total = query.totalBill;
- newBill.items = [];
- for(var i =0; i<listItems.length; i++){
- var eachItem = listItems[i];
- promises.push(insertEachItem(eachItem, newBill));
- }
- Q.allSettled(promises).then(function(response){
- newBill.save(function(err){
- if(err){
- console.log(err);
- res.send(new errorResponse("error","no query formed properly",err));
- }
- else{
- var data = newBill._id;
- res.send(new successResponse("ok",data,{},"success full bill created for your items"));
- }
- })
- })*/
+newBill.purchasedBy = query.purchasedBy;
+newBill.purchasedOn = query.purchasedOn;
+newBill.total = query.totalBill;
+newBill.items = [];
+for(var i =0; i<listItems.length; i++){
+    var eachItem = listItems[i];
+    promises.push(insertEachItem(eachItem, newBill));
+}
+Q.allSettled(promises).then(function(response){
+    newBill.save(function(err){
+        if(err){
+            console.log(err);
+            res.send(new errorResponse("error","no query formed properly",err));
+        }
+        else{
+            var data = newBill._id;
+            res.send(new successResponse("ok",data,{},"success full bill created for your items"));
+        }
+    })
+})*/
 
 
 

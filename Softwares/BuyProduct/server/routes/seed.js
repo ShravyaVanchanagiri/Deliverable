@@ -18,7 +18,6 @@ fs.readFile('/home/shravya/WebstormProjects/Deliverable/Softwares/BuyProduct/ser
     if (err) {
         return console.log(err);
     }
-    console.log('===data :', data);
     if(data) {
         console.log('===data :', data);
         var prods = JSON.parse(data);
