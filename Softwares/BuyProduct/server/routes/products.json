@@ -1,0 +1,34 @@
+[
+  {
+    "name" : "colgate paste",
+    "category" : "paste",
+    "price" : 50
+  },
+  {
+    "name" : "Pears",
+    "category" : "soap",
+    "price" : 55
+  },
+  {
+    "name" : "santoor",
+    "category" : "soap",
+    "price" : 30
+  },
+  {
+    "name" : "revlon flex",
+    "category" : "shampoo",
+    "price" : 250
+  },
+  {
+    "name" : "thumsup",
+    "category" : "cool drink",
+    "price" : 60
+  },
+  {
+    "name" : "meera",
+    "category" : "oil",
+    "price" : 40
+  }
+
+]
+
