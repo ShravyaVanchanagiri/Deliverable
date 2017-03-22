@@ -56,7 +56,11 @@ var productRouter = {
                     console.log("error", err);
                 }
                 else {
-
+                    var total = 0;
+                    for(var i=0;i<queryParam.products.length;i++){
+                        total += queryParam.products[i].price;
+                    }
+                    console.log(total);
                     if (index === queryParam.products.length - 1) {
                         listItems.push(itemObj._id);
                         console.log("should worked");
@@ -64,7 +68,7 @@ var productRouter = {
                             purchasedBy: "Sridhar",
                             purchasedOn: new Date(),
                             list: listItems,
-                            total: 123
+                            total: total
                         }).save(function (err, billData) {
                             if (err) {
                                 console.log("Eror", err);
