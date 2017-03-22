@@ -3,10 +3,10 @@
  */
 (function () {
     angular.module('home')
-        .directive('searchInclude',searchInclude);
-    searchInclude.$inject=[];
+        .directive('searchInclude', searchInclude);
+    searchInclude.$inject = [];
 
-    function searchInclude(){
+    function searchInclude() {
         var directive = {
             templateUrl: 'partials/search.html'
         };

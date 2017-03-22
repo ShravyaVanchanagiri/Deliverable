@@ -1,42 +1,42 @@
 /**
  * Created by shravya on 3/3/17.
  */
-(function(){
+(function () {
     'use strict';
 
     angular.module('home')
         .factory('api', api);
 
-    api.$inject = ['$resource','$rootScope'];
+    api.$inject = ['$resource', '$rootScope'];
 
     //clinical trail API for data calls
-    function api ($resource, $rootScope) {
+    function api($resource, $rootScope) {
         return $resource('/', getParamDefaults(), getActions($rootScope));
     }
 
     //default parameters will go here..
-    var getParamDefaults = function() {
+    var getParamDefaults = function () {
         return {
-            id:'@id'
+            id: '@id'
         };
     };
 
     //default actions and methods will go here..
-    var getActions = function() {
+    var getActions = function () {
         return {
-            'getAllNames':{
-                method : 'GET',
+            'getAllNames': {
+                method: 'GET',
                 url: '/getAllNames'
             },
-            'getAllProducts' : {
-                method : 'GET',
+            'getAllProducts': {
+                method: 'GET',
                 url: '/getAllProducts'
             },
-            'storeItem' : {
-                method : 'POST',
+            'storeItem': {
+                method: 'POST',
                 url: '/storeItems'
             },
-            'getBill' : {
+            'getBill': {
                 url: '/getBill'
             }
         }
