@@ -5,9 +5,9 @@
         angular.module('home')
             .controller("SearchController", SearchController);
 
-        SearchController.$inject = ['$http', 'searchService', '$rootScope', '$state'];
+        SearchController.$inject = ['$http', 'searchService', '$rootScope', '$state','NgTableParams'];
 
-        function SearchController($http, searchService, $rootScope, $state) {
+        function SearchController($http, searchService, $rootScope, $state, NgTableParams) {
             var vm = this;
             vm.allProducts = [];
             vm.getAllProducts = getAllProducts;
@@ -22,9 +22,19 @@
 
                 }
             }
-
+            loadTable();
+            function loadTable(){
+                vm.tableParams = new NgTableParams({}, {
+                    getData: function (params) {
+                        console.log(vm.data);
+                        vm.data = vm.selectedProducts.slice((params.page() - 1) * params.count(), params.page() * params.count());
+                        return vm.data;
+                    }
+                });
+            }
             vm.searchedData = [];
             vm.selectedProducts = [];
+            vm.data=[];
             vm.refreshProds = function (valueEntered) {
                 console.log("refresh products")
                 searchService.getProducts(valueEntered).then(success).catch(failure);
@@ -37,12 +47,16 @@
 
                 }
             }
+
+
+
             vm.addProduct = addProduct;
             function addProduct(product) {
                 if (!product.quantity)
                     product.quantity = 1;
                 vm.selectedProducts.push(product);
                 console.log(vm.selectedProducts);
+                vm.tableParams.reload();
 
             }
 
@@ -50,7 +64,7 @@
             function updateProduct(data) {
                 for (var i = 0; i < vm.allProducts.length; i++) {
                     if (vm.allProducts[i]._id == data._id) {
-                        data.price = data.selectedQuantity * vm.allProducts[i].price;
+                        data.price = data.quantity * vm.allProducts[i].price;
                     }
                 }
             }

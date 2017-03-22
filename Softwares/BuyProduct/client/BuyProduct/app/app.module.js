@@ -3,6 +3,7 @@
  */
 (function () {
     angular.module('buyProduct', [
+        "ngTable",
         "home",
         "ui.router",
         "ngResource",
