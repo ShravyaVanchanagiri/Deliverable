@@ -33,7 +33,6 @@
             }
 
             function getBill(query) {
-                console.log("in search service getBill", query);
                 return api.getBill(query).$promise;
             }
         }

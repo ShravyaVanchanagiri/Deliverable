@@ -42,8 +42,6 @@
                 if (!product.quantity)
                     product.quantity = 1;
                 vm.selectedProducts.push(product);
-                console.log(vm.selectedProducts);
-
             }
 
             vm.updateProduct = updateProduct;
@@ -73,7 +71,6 @@
                 searchService.storeItem(query).then(success).catch(failure);
 
                 function success(response) {
-                    console.log("bill data: ", response.data);
                     var billId = response.data;
                     $state.go('bill', {billId: billId});
                 }
