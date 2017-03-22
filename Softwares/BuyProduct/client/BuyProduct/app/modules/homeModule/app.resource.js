@@ -35,6 +35,9 @@
             'storeItem' : {
                 method : 'POST',
                 url: '/storeItems'
+            },
+            'getBill' : {
+                url: '/getBill'
             }
         }
     }

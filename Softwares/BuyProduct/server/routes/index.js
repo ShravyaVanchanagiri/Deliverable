@@ -11,5 +11,6 @@ var router= function(app){
   app.get('/getAllNames',productRoutes.searchProducts);
   app.get('/getAllProducts',productRoutes.getAllProducts);
   app.post('/storeItems',productRoutes.storeItems);
+  app.get('/getBill',productRoutes.getBill);
 };
 module.exports = router;

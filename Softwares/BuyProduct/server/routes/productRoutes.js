@@ -70,6 +70,7 @@ var productRouter={
                             console.log("Eror",err);
                            }
                            else{
+                               console.log("bill data:",billData);
                                res.send(prepareRes(200,billData._id,"OK"));
                            }
                        })
@@ -83,37 +84,23 @@ var productRouter={
             console.log("index",index)
             console.log("queryParam.products",queryParam.products.length)
         })
-
-
-
+    },
+    getBill : function(req,res){
+        console.log(req.query);
+        var billId = req.query.billId;
+        billModel.findOne({_id : billId}, function (err, bill) {
+            console.log("Inside function");
+            if (err) {
+                console.log("error");
+            } else {
+                res.send({status:200, data:bill});
+            }
+        })
     }
 
 };
 module.exports=productRouter;
 
-
-
-/*var newBill = new billModel();
-newBill.purchasedBy = query.purchasedBy;
-newBill.purchasedOn = query.purchasedOn;
-newBill.total = query.totalBill;
-newBill.items = [];
-for(var i =0; i<listItems.length; i++){
-    var eachItem = listItems[i];
-    promises.push(insertEachItem(eachItem, newBill));
-}
-Q.allSettled(promises).then(function(response){
-    newBill.save(function(err){
-        if(err){
-            console.log(err);
-            res.send(new errorResponse("error","no query formed properly",err));
-        }
-        else{
-            var data = newBill._id;
-            res.send(new successResponse("ok",data,{},"success full bill created for your items"));
-        }
-    })
-})*/
 
 
 

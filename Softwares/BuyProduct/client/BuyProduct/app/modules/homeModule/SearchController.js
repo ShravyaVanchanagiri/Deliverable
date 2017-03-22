@@ -71,8 +71,9 @@
                 searchService.storeItem(query).then(success).catch(failure);
 
                 function success(response){
-                    console.log(response);
-                    $state.go('bill');
+                    console.log("bill data: ",response.data);
+                    var billId = response.data;
+                    $state.go('bill',{billId : billId});
                 }
 
                 function failure(failure){

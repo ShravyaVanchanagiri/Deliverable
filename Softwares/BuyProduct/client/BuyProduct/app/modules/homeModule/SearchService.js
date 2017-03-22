@@ -13,7 +13,8 @@
             var searchService={
                 getProducts:getProducts,
                 getAllProducts:getAllProducts,
-                storeItem:storeItem
+                storeItem:storeItem,
+                getBill:getBill
             };
             return searchService;
 
@@ -28,6 +29,10 @@
             }
             function storeItem(query){
                 return api.storeItem(query).$promise;
+            }
+            function getBill(query){
+                console.log("in search service getBill",query);
+                return api.getBill(query).$promise;
             }
         }
     }

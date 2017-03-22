@@ -12,12 +12,18 @@
                 url:'/home',
                 templateUrl: 'partials/search.html',
                 controller: 'SearchController',
-                controllerAs: 'sc'
+                controllerAs: 'sc',
+                params: {
+                    billId: null
+                }
             }).state('bill',{
                 url:'/bill',
                 templateUrl: 'partials/bill.html',
-                controller: 'SearchController',
-                controllerAs: 'sc'
+                controller: 'billController',
+                controllerAs: 'bc',
+                params: {
+                    billId: null
+                }
             });
 
             $urlRouterProvider.otherwise('/home');
