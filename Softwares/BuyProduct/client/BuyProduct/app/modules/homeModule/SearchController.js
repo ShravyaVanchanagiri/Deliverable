@@ -74,6 +74,7 @@
         vm.total = 0;
         vm.calculateTotal = calculateTotal;
         function calculateTotal() {
+            //TODO: fix comment: What is this variable? global or local or controller specific?
             total = 0;
             for (var i = 0; i < vm.selectedProducts.length; i++) {
                 total = total + vm.selectedProducts[i].price;
