@@ -9,19 +9,16 @@
 
     api.$inject = ['$resource', '$rootScope'];
 
-    //clinical trail API for data calls
     function api($resource, $rootScope) {
         return $resource('/', getParamDefaults(), getActions($rootScope));
     }
 
-    //default parameters will go here..
     var getParamDefaults = function () {
         return {
             id: '@id'
         };
     };
 
-    //default actions and methods will go here..
     var getActions = function () {
         return {
             'getAllNames': {
