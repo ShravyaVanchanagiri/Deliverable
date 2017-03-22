@@ -49,8 +49,12 @@
     <button ng-click="sc.pay()">Proceed to Pay</button>
 
 </div>-->
-
 <div class="row" ng-if="sc.selectedProducts.length>0">
+    <table-component table-params="sc.tableParams" calculate-total="sc.calculateTotal()" update-product="sc.updateProduct(prod)"></table-component>
+    <button ng-click="sc.pay()">Proceed to Pay</button>
+</div>
+
+<!--<div class="row" ng-if="sc.selectedProducts.length>0">
     <table ng-table="sc.tableParams" class="table" show-filter="true" class="table table-condensed table-bordered table-striped">
         <tr ng-repeat="prod in $data">
             <td title="'Sno'" filter="{ sno: 'number'}" sortable="'sno'">
@@ -77,6 +81,6 @@
         </tr>
     </table>
     <button ng-click="sc.pay()">Proceed to Pay</button>
-</div>
+</div>-->
 
 
