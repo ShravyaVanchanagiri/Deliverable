@@ -17,70 +17,10 @@
     <br>
 </div>
 <br><br><br>
-<!--<div>
-    <table ng-if="sc.selectedProducts.length>0">
-        <th>Sno</th>
-        <th>Product Name</th>
-        <th>Quantity</th>
-        <th>Price</th>
-
-        <tr ng-repeat="data in sc.selectedProducts" >
-            <td>{{$index + 1}}</td>
-            <td>{{data.name}}</td>
-            <td>
-                <select ng-model="data.selectedQuantity" ng-change="sc.updateProduct(data)">
-                    <option>1</option>
-                    <option>2</option>
-                    <option>3</option>
-                    <option>4</option>
-                    <option>5</option>
-                </select>
-            </td>
-            <td>{{data.price}}</td>
-        </tr>
-        <tr>
-            <td></td>
-            <td></td>
-            <td>Total Amount</td>
-            <td>{{sc.calculateTotal()}}</td>
-        </tr>
-    </table>
-
-    <button ng-click="sc.pay()">Proceed to Pay</button>
-
-</div>-->
 <div class="row" ng-if="sc.selectedProducts.length>0">
     <table-component table-params="sc.tableParams" calculate-total="sc.calculateTotal()" update-product="sc.updateProduct(prod)"></table-component>
     <button ng-click="sc.pay()">Proceed to Pay</button>
 </div>
 
-<!--<div class="row" ng-if="sc.selectedProducts.length>0">
-    <table ng-table="sc.tableParams" class="table" show-filter="true" class="table table-condensed table-bordered table-striped">
-        <tr ng-repeat="prod in $data">
-            <td title="'Sno'" filter="{ sno: 'number'}" sortable="'sno'">
-                {{$index + 1}}</td>
-            <td title="'Product Name'" filter="{ name: 'text'}" sortable="'name'">
-                {{prod.name}}</td>
-            <td title="'quantity'" filter="{ quantity: 'text'}" sortable="'quantity'">
-                <select ng-model="prod.quantity" ng-change="sc.updateProduct(prod)">
-                    <option>1</option>
-                    <option>2</option>
-                    <option>3</option>
-                    <option>4</option>
-                    <option>5</option>
-                </select>
-            </td>
-            <td title="'Price'" filter="{ price: 'number'}" sortable="'price'">
-                {{prod.price}}</td>
-        </tr>
-        <tr>
-            <td></td>
-            <td></td>
-            <td>Total Amount</td>
-            <td>{{sc.calculateTotal()}}</td>
-        </tr>
-    </table>
-    <button ng-click="sc.pay()">Proceed to Pay</button>
-</div>-->
 
 
