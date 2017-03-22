@@ -4,6 +4,7 @@
 var mongoose = require('mongoose');
 var fs = require('fs');
 var productModel= require('../Models/productModel');
+//TODO: fix comment: Un-necessary initialization of the MongoClient
 var MongoClient = require('mongodb').MongoClient;
 // Connect to the db
 mongoose.connect('mongodb://127.0.0.1:27017/buyProducts',function(error){
@@ -34,7 +35,7 @@ fs.readFile('/home/shravya/WebstormProjects/Deliverable/Softwares/BuyProduct/ser
                 }
             })
         }
-
+        //TODO: fix comment: You can remove the un-used code
         productModel.find({}, function (err, products) {
             console.log("fIND ..inside function");
             if (err) {

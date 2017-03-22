@@ -1,3 +1,4 @@
+//TODO: fix comment: You should not push these kind of log files to github, Instead you can ignore this file in .gitignore
 0 info it worked if it ends with ok
 1 verbose cli [ '/usr/bin/nodejs', '/usr/bin/npm', 'run-script', 'start' ]
 2 info using npm@4.1.2

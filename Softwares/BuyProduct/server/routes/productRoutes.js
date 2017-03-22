@@ -5,10 +5,18 @@ var productModel = require('../Models/productModel');
 var config = require("../config/config");
 var prepareRes = require("../apiUtils/prepareRes");
 var itemModel = require('../Models/itemModel');
+//TODO: fix comment: Change the way of writing the code to something like below
+//TODO: var ItemModel = require('../models/itemModel');
+//TODO: Here model name should start with caps
+//TODO: folders should have small case names
 var billModel = require('../Models/billModel');
+//TODO: fix comment: All unnecesary console logs should be removed
+//TODO: fix comment: Make use of SuccessResponse, ErrorResult js files to make a generic response throught the application
+// I see the prepareRes() object but its not being use actively
 var productRouter = {
     searchProducts: function (req, res) {
         var query = {};
+        //TODO: fix comment: You can move the below condition based query to util method
         if (req.query.keyword) {
             var regExp = new RegExp(req.query.keyword, "i");
             query.name = regExp;
@@ -62,6 +70,7 @@ var productRouter = {
                     }
                     console.log(total);
                     if (index === queryParam.products.length - 1) {
+                        //TODO: fix comment: Below piece of code is duplicated so you can write it out of this if condition
                         listItems.push(itemObj._id);
                         console.log("should worked");
                         new billModel({

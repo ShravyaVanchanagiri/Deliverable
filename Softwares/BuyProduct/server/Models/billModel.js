@@ -25,5 +25,6 @@ var billSchema = new Schema({
     {collection:'bill'}
 );
 
+//TODO: fix comment: Model name can be Capital. i.e., instead of 'bill' it should be 'Bill'
 var billModel = mongoose.model('bill', billSchema);
 module.exports=billModel;

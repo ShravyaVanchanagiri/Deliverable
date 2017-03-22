@@ -1,3 +1,5 @@
+//TODO: fix comment: This README.md file is the instruction file of your project
+//TODO: fix comment: So this file should contain i/f related to your project, not the other project i/f.
 # `angular-seed` — the seed for AngularJS apps
 
 This project is an application skeleton for a typical [AngularJS][angularjs] web app. You can use it
