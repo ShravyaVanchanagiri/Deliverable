@@ -6,7 +6,7 @@
 (function () {
     angular.module('buyProduct', [
         "ngTable",
-        "home",
+        "buyProduct.home",
         "ui.router",
         "ngResource",
         "ui.select",

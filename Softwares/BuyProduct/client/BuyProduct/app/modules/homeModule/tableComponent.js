@@ -2,7 +2,7 @@
  * Created by shravya on 22/3/17.
  */
 (function () {
-    angular.module('home')
+    angular.module('buyProduct.home')
         .component('tableComponent', {
 
             bindings: {

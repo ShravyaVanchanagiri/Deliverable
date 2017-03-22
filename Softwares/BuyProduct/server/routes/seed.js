@@ -36,14 +36,5 @@ fs.readFile('/home/shravya/WebstormProjects/Deliverable/Softwares/BuyProduct/ser
             })
         }
         //TODO: fix comment: You can remove the un-used code
-        productModel.find({}, function (err, products) {
-            console.log("fIND ..inside function");
-            if (err) {
-                console.log("error");
-            } else {
-                // object of all the users
-                console.log(products);
-            }
-        })
     }
 });

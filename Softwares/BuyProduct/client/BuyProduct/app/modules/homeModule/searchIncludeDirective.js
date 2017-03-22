@@ -3,7 +3,7 @@
  */
 //TODO: fix comment: Use component instead of directives
 (function () {
-    angular.module('home')
+    angular.module('buyProduct.home')
         .directive('searchInclude', searchInclude);
     searchInclude.$inject = [];
 

@@ -6,7 +6,7 @@
 (function () {
     'use strict';
 
-    angular.module('home')
+    angular.module('buyProduct.home')
         .factory('api', api);
 
     api.$inject = ['$resource', '$rootScope'];
@@ -36,6 +36,7 @@
                 url: '/storeItems'
             },
             'getBill': {
+                method: 'GET',
                 url: '/getBill'
             }
             //TODO: fix comment: Why the last method doesn't have the method type

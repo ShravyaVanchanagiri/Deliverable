@@ -3,7 +3,7 @@
  */
 
 (function () {
-    angular.module('home')
+    angular.module('buyProduct.home')
         .component('headerDirective', {
 
             bindings: {},

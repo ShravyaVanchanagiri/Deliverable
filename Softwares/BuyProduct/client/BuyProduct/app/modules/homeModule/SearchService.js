@@ -2,7 +2,7 @@
  * Created by vanchanagiri shravya on 1/18/2017.
  */
 (function () {
-        angular.module('home')
+        angular.module('buyProduct.home')
             .service("searchService", searchService);
 
 

@@ -36,11 +36,6 @@ app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
-//app.use(express.static(path.join(__dirname, 'public')));
-//TODO: fix comment: Remove all commented codes
-/*app.use('/', index);*/
-//TODO: fix comment: No routing available in users.js router, so remove this
-app.use('/users', users);
 
 
 //set path to static files and then define the engine
