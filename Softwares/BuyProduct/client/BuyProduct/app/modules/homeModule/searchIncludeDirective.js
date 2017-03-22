@@ -1,17 +1,18 @@
 /**
  * Created by vanchanagiri shravya on 1/25/2017.
  */
-//TODO: fix comment: Use component instead of directives
 (function () {
     angular.module('buyProduct.home')
-        .directive('searchInclude', searchInclude);
+        .component('searchInclude',{
+            bindings: {},
+            templateUrl: 'partials/search.html',
+            controller: searchInclude,
+            controllerAs: 'si'
+        });
     searchInclude.$inject = [];
 
     function searchInclude() {
-        var directive = {
-            templateUrl: 'partials/search.html'
-        };
-        return directive;
+        var vm=this;
     }
 })();
 

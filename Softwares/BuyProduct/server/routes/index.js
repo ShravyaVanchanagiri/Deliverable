@@ -2,7 +2,6 @@ var express = require('express');
 var router = express.Router();
 var path = require('path');
 var productRoutes = require('./productRoutes');
-//TODO: fix comment: "router" variable is initialized two times. Remove the above one.
 router = function (app) {
     app.get('/', function (req, res, next) {
         console.log("coming here");

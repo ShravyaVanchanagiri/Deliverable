@@ -2,14 +2,9 @@
  * Created by shravya on 21/3/17.
  */
 var productModel = require('../Models/productModel');
-var config = require("../config/config");
 var prepareRes = require("../apiUtils/prepareRes");
-var itemModel = require('../Models/itemModel');
-//TODO: fix comment: Change the way of writing the code to something like below
-//TODO: var ItemModel = require('../models/itemModel');
-//TODO: Here model name should start with caps
-//TODO: folders should have small case names
-var billModel = require('../Models/billModel');
+var ItemModel = require('../Models/itemModel');
+var BillModel = require('../Models/billModel');
 //TODO: fix comment: All unnecesary console logs should be removed
 //TODO: fix comment: Make use of SuccessResponse, ErrorResult js files to make a generic response throught the application
 // I see the prepareRes() object but its not being use actively
@@ -54,7 +49,7 @@ var productRouter = {
         var queryParam = req.body;
         var listItems = [];
         queryParam.products.forEach(function (eachProduct, index) {
-            var itemObj = new itemModel({
+            var itemObj = new ItemModel({
                 product: eachProduct._id,
                 quantity: eachProduct.selectedQuantity,
                 totalCost: eachProduct.price
@@ -73,7 +68,7 @@ var productRouter = {
                         //TODO: fix comment: Below piece of code is duplicated so you can write it out of this if condition
                         listItems.push(itemObj._id);
                         console.log("should worked");
-                        new billModel({
+                        new BillModel({
                             purchasedBy: "Sridhar",
                             purchasedOn: new Date(),
                             list: listItems,
@@ -101,7 +96,7 @@ var productRouter = {
     getBill: function (req, res) {
         console.log(req.query);
         var billId = req.query.billId;
-        billModel.findOne({_id: billId}, function (err, bill) {
+        BillModel.findOne({_id: billId}, function (err, bill) {
             console.log("Inside function");
             if (err) {
                 console.log("error");
